@@ -3,350 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uvoshop - Sedang Dalam Perbaikan</title>
+    <title>UVOSHOP - Top Up Game Termurah & Terpercaya</title>
+    <link rel="stylesheet" href="asset/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --dark-blue: #0a192f;
-            --accent-blue: #64ffda;
-            --light-blue: #112240;
-            --text-color: #e6f1ff;
-            --gray: #8892b0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--dark-blue);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .navbar {
-            background-color: rgba(10, 25, 47, 0.9);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
-            animation: slideDown 0.8s ease-out;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 40px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-left: 10px;
-            color: var(--accent-blue);
-        }
-
-        .main-content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 0 80px;
-            text-align: center;
-        }
-
-        .main-container {
-            max-width: 800px;
-            padding: 40px;
-            background-color: rgba(17, 34, 64, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            animation: fadeIn 1s ease-out;
-        }
-
-        .status-icon {
-            font-size: 5rem;
-            color: var(--accent-blue);
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--accent-blue), #4db5ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textGlow 3s infinite alternate;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .contact-card {
-            background-color: var(--light-blue);
-            border-radius: 10px;
-            padding: 25px;
-            width: 250px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(100, 255, 218, 0.2);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--accent-blue);
-        }
-
-        .contact-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--accent-blue);
-        }
-
-        .contact-info {
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: var(--dark-blue);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background-color: #4db5ff;
-            transform: scale(1.05);
-        }
-
-        .footer {
-            background-color: rgba(10, 25, 47, 0.9);
-            padding: 20px 0;
-            text-align: center;
-            border-top: 1px solid rgba(100, 255, 218, 0.1);
-            animation: slideUp 0.8s ease-out;
-        }
-
-        .copyright {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 5px rgba(100, 255, 218, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(100, 255, 218, 0.8); }
-        }
-
-        @media (max-width: 768px) {
-            .main-container {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .contact-methods {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-card {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1.2rem;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .status-icon {
-                font-size: 4rem;
-            }
-        }
-    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <a href="#">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwueBl7feInAH6Zud-nXjBIaoKpJjXikPqeMgyuE8_G4ywPfsiogmNo6nxYF8y6TuzMG9uUJDDGyhuU-lLofS_1qgvTHQxYB9H87Yn-BsyezvPQbF-viJ5JO8vYPJIl6WhZsZ5jSQXAOcto9tnF_2DP3lPMVIfnUX05t0azK8-yt8KUUroburdApHS6oln/s1600/uvoshop%20logo%20teks%20transparan.png" alt="UVOSHOP">
-                </a>
-                <span class="logo-text">Perbaikan</span>
-            </div>
-        </div>
-    </nav>
-
-    <main class="main-content">
+    <!-- Header dengan logo, search, dan login -->
+    <header>
         <div class="container">
-            <div class="main-container">
-                <div class="status-icon">
-                    <i class="fas fa-tools"></i>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/150x50?text=UVOSHOP" alt="UVOSHOP Logo">
                 </div>
-                <h1>Sedang Dalam Perbaikan</h1>
-                <p class="subtitle">
-                    Maaf atas ketidaknyamanannya. Saat ini Uvoshop sedang dalam proses perbaikan dan peningkatan untuk memberikan pengalaman berbelanja yang lebih baik.
-                    <br><br>
-                    Untuk sementara, Anda masih dapat melakukan pemesanan secara manual melalui kontak di bawah ini.
-                </p>
-
-                <div class="contact-methods">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3 class="contact-title">WhatsApp</h3>
-                        <p class="contact-info">+6285124749723</p>
-                        <a href="https://wa.me/6285124749723?text=Halo%20Uvoshop,%20saya%20ingin%20bertanya%20tentang%20produk" class="contact-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Hubungi via WA
-                        </a>
-                    </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                        <h3 class="contact-title">Telegram</h3>
-                        <p class="contact-info">@uvoshop</p>
-                        <a href="https://t.me/uvoshop" class="contact-btn" target="_blank">
-                            <i class="fab fa-telegram"></i> Hubungi via Telegram
-                        </a>
-                    </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari game atau item...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <button class="login-btn"><i class="fas fa-user"></i> Login</button>
                 </div>
             </div>
         </div>
-    </main>
+    </header>
 
-    <footer class="footer">
+    <!-- Banner Slider -->
+    <section class="banner">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide active" style="background-image: url('https://via.placeholder.com/1600x900?text=Promo+1');">
+                    <div class="slide-content">
+                        <h2>Top Up Game Favorit Anda</h2>
+                        <p>Dapatkan bonus eksklusif untuk pembelian pertama</p>
+                        <button class="cta-btn">Beli Sekarang</button>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Promo+2');">
+                    <div class="slide-content">
+                        <h2>Voucher Game Termurah</h2>
+                        <p>Diskon hingga 20% untuk semua game</p>
+                        <button class="cta-btn">Lihat Promo</button>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Promo+3');">
+                    <div class="slide-content">
+                        <h2>Event Spesial Bulan Ini</h2>
+                        <p>Dapatkan item langka dengan harga terbatas</p>
+                        <button class="cta-btn">Ikuti Event</button>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Promo+4');">
+                    <div class="slide-content">
+                        <h2>Metode Pembayaran Lengkap</h2>
+                        <p>Transfer bank, e-wallet, dan QRIS tersedia</p>
+                        <button class="cta-btn">Cara Bayar</button>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Promo+5');">
+                    <div class="slide-content">
+                        <h2>Customer Service 24/7</h2>
+                        <p>Bantuan cepat melalui live chat dan WhatsApp</p>
+                        <button class="cta-btn">Hubungi Kami</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider-dots">
+                <!-- Dots akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- List Item Populer -->
+    <section class="popular-items">
         <div class="container">
-            <p class="copyright">&copy; 2025 ADITdeveloper. All rights reserved.</p>
+            <h2 class="section-title">Item Populer</h2>
+            <div class="items-grid" id="popular-items">
+                <!-- Items akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- List Kategori -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Kategori Game</h2>
+            <div class="categories-list" id="categories-list">
+                <!-- Kategori akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Isi Kategori (Item) -->
+    <section class="category-items">
+        <div class="container">
+            <h2 class="section-title" id="category-title">Semua Game</h2>
+            <div class="items-grid" id="category-items">
+                <!-- Items akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>UVOSHOP</h3>
+                    <p>Platform top up game terpercaya dengan pelayanan terbaik dan harga termurah. Transaksi cepat dan aman dengan jaminan 100% uang kembali jika terjadi kendala.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Peta Website</h3>
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Promo</a></li>
+                        <li><a href="#">Game</a></li>
+                        <li><a href="#">Cara Pembayaran</a></li>
+                        <li><a href="#">Bantuan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-envelope"></i> cs@uvoshop.com</p>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 UVOSHOP. All rights reserved. | Developed by <strong>ADITdeveloper</strong></p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+    <!-- Modal Login -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login ke Akun Anda</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username atau Email</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <p>Belum punya akun? <a href="#" id="register-link">Daftar di sini</a></p>
+        </div>
+    </div>
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
+    <!-- Modal Beli -->
+    <div class="modal" id="buy-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="buy-title">Beli Item</h2>
+            <div class="buy-details">
+                <div class="game-info">
+                    <img id="buy-image" src="" alt="Game Logo">
+                    <div>
+                        <h3 id="buy-name"></h3>
+                        <p id="buy-developer"></p>
+                    </div>
+                </div>
+                <div class="price-info">
+                    <p>Harga: <span id="buy-price"></span></p>
+                </div>
+                <form id="buy-form">
+                    <div class="form-group">
+                        <label for="game-id">ID Game</label>
+                        <input type="text" id="game-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="server">Server</label>
+                        <input type="text" id="server" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Konfirmasi Pembelian</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-            const contactCards = document.querySelectorAll('.contact-card');
-            contactCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-
-            const title = document.querySelector('h1');
-            const text = title.textContent;
-            title.textContent = '';
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    title.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-            
-            setTimeout(typeWriter, 1000);
-        });
-    </script>
+    <script src="asset/jangandibuka.js"></script>
 </body>
 </html>
