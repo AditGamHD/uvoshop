@@ -435,11 +435,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const slider = document.querySelector('.slider');
-        slider.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
+        if (slider) {
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
 
-        slider.addEventListener('mouseleave', startSlider);
+            slider.addEventListener('mouseleave', startSlider);
+        }
 
         startSlider();
     }
@@ -447,6 +449,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadPopularItems() {
         const popularItemsContainer = document.getElementById('popular-items');
         const popularProducts = produkData.produk.filter(produk => produk.populer);
+        if (!popularItemsContainer) return;
         popularItemsContainer.innerHTML = '';
         popularProducts.forEach(produk => {
             const itemCard = createItemCard(produk);
@@ -456,6 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadCategories() {
         const categoriesContainer = document.getElementById('categories-list');
+        if (!categoriesContainer) return;
         categoriesContainer.innerHTML = '';
         produkData.kategori.forEach(kategori => {
             const categoryBtn = document.createElement('button');
@@ -470,6 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadAllItems() {
         const categoryItemsContainer = document.getElementById('category-items');
+        if (!categoryItemsContainer) return;
         categoryItemsContainer.innerHTML = '';
         produkData.produk.forEach(produk => {
             const itemCard = createItemCard(produk);
@@ -497,6 +502,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const categoryItemsContainer = document.getElementById('category-items');
         const categoryTitle = document.getElementById('category-title');
         const categoryButtons = document.querySelectorAll('.category-btn');
+        if (!categoryItemsContainer || !categoryTitle) return;
         categoryButtons.forEach(btn => {
             btn.classList.remove('active');
             if (btn.dataset.category === categoryId) {
@@ -520,63 +526,120 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupEventListeners() {
         const loginBtn = document.querySelector('.login-btn');
         const loginModal = document.getElementById('login-modal');
-        const closeLoginModal = loginModal.querySelector('.close-btn');
+        const closeLoginModal = loginModal ? loginModal.querySelector('.close-btn') : null;
 
-        loginBtn.addEventListener('click', () => {
-            loginModal.style.display = 'flex';
-        });
+        if (loginBtn && loginModal && closeLoginModal) {
+            loginBtn.addEventListener('click', () => {
+                loginModal.style.display = 'flex';
+            });
 
-        closeLoginModal.addEventListener('click', () => {
-            loginModal.style.display = 'none';
-        });
+            closeLoginModal.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+            });
+        }
 
         const loginForm = document.getElementById('login-form');
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            alert(`Login berhasil! Selamat datang, ${username}`);
-            loginModal.style.display = 'none';
-            loginForm.reset();
-        });
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                alert(`Login berhasil! Selamat datang, ${username}`);
+                if (loginModal) loginModal.style.display = 'none';
+                loginForm.reset();
+
+                let existing = document.getElementById('login-warning');
+                if (!existing) {
+                    const warning = document.createElement('div');
+                    warning.id = 'login-warning';
+                    warning.textContent = 'Peringatan: login sedang mainenenche';
+                    warning.style.position = 'fixed';
+                    warning.style.top = '20px';
+                    warning.style.right = '20px';
+                    warning.style.background = 'rgba(255,200,0,0.95)';
+                    warning.style.color = '#111';
+                    warning.style.padding = '12px 16px';
+                    warning.style.borderRadius = '8px';
+                    warning.style.boxShadow = '0 4px 12px rgba(0,0,0,0.12)';
+                    warning.style.zIndex = '9999';
+                    warning.style.fontWeight = '600';
+                    const closeBtn = document.createElement('button');
+                    closeBtn.type = 'button';
+                    closeBtn.innerHTML = '×';
+                    closeBtn.style.marginLeft = '12px';
+                    closeBtn.style.background = 'transparent';
+                    closeBtn.style.border = 'none';
+                    closeBtn.style.fontSize = '16px';
+                    closeBtn.style.cursor = 'pointer';
+                    closeBtn.addEventListener('click', () => {
+                        if (warning.parentNode) warning.parentNode.removeChild(warning);
+                    });
+                    warning.appendChild(closeBtn);
+                    document.body.appendChild(warning);
+                }
+            });
+        }
 
         const buyModal = document.getElementById('buy-modal');
-        const closeBuyModal = buyModal.querySelector('.close-btn');
+        const closeBuyModal = buyModal ? buyModal.querySelector('.close-btn') : null;
 
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('buy-btn')) {
                 const productId = e.target.dataset.id;
                 const product = produkData.produk.find(p => p.id == productId);
-                if (product) {
+                if (product && buyModal) {
                     document.getElementById('buy-title').textContent = `Beli ${product.nama}`;
-                    document.getElementById('buy-image').src = product.gambar;
-                    document.getElementById('buy-name').textContent = product.nama;
-                    document.getElementById('buy-developer').textContent = product.developer;
-                    document.getElementById('buy-price').textContent = product.harga;
+                    const buyImage = document.getElementById('buy-image');
+                    if (buyImage) buyImage.src = product.gambar;
+                    const buyName = document.getElementById('buy-name');
+                    if (buyName) buyName.textContent = product.nama;
+                    const buyDeveloper = document.getElementById('buy-developer');
+                    if (buyDeveloper) buyDeveloper.textContent = product.developer;
+                    const buyPrice = document.getElementById('buy-price');
+                    if (buyPrice) buyPrice.textContent = product.harga;
                     buyModal.style.display = 'flex';
+
+                    const buyFormLocal = document.getElementById('buy-form');
+                    if (buyFormLocal) {
+                        buyFormLocal.dataset.productId = product.id;
+                    }
                 }
             }
         });
 
-        closeBuyModal.addEventListener('click', () => {
-            buyModal.style.display = 'none';
-        });
+        if (closeBuyModal) {
+            closeBuyModal.addEventListener('click', () => {
+                buyModal.style.display = 'none';
+            });
+        }
 
         const buyForm = document.getElementById('buy-form');
-        buyForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const gameId = document.getElementById('game-id').value;
-            const server = document.getElementById('server').value;
-            alert(`Pembelian berhasil! ID Game: ${gameId}, Server: ${server}. Silakan tunggu proses top up.`);
-            buyModal.style.display = 'none';
-            buyForm.reset();
-        });
+        if (buyForm) {
+            buyForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const waNumber = '6285648211278';
+                const selectedProductId = buyForm.dataset.productId;
+                const product = produkData.produk.find(p => p.id == selectedProductId) || {};
+                const gameId = document.getElementById('game-id') ? document.getElementById('game-id').value : '';
+                const server = document.getElementById('server') ? document.getElementById('server').value : '';
+                const produkField = product.developer || '-';
+                const itemField = product.nama || '-';
+                const hargaField = product.harga || '-';
+                const zonaField = server || '-';
+                const idField = gameId || '-';
+                const message = `Produk: ${produkField}\nItem: ${itemField}\nHarga: ${hargaField}\nID: ${idField}\nZona: ${zonaField}`;
+                const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+                buyModal.style.display = 'none';
+                buyForm.reset();
+                window.location.href = url;
+            });
+        }
 
         window.addEventListener('click', function(e) {
-            if (e.target === loginModal) {
+            if (loginModal && e.target === loginModal) {
                 loginModal.style.display = 'none';
             }
-            if (e.target === buyModal) {
+            if (buyModal && e.target === buyModal) {
                 buyModal.style.display = 'none';
             }
         });
@@ -588,13 +651,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const searchTerm = searchInput.value.toLowerCase().trim();
             if (searchTerm) {
                 const searchResults = produkData.produk.filter(produk =>
-                    produk.nama.toLowerCase().includes(searchTerm) ||
-                    produk.developer.toLowerCase().includes(searchTerm)
+                    (produk.nama || '').toLowerCase().includes(searchTerm) ||
+                    (produk.developer || '').toLowerCase().includes(searchTerm)
                 );
                 if (searchResults.length > 0) {
                     const categoryItemsContainer = document.getElementById('category-items');
                     const categoryTitle = document.getElementById('category-title');
                     const categoryButtons = document.querySelectorAll('.category-btn');
+                    if (!categoryItemsContainer || !categoryTitle) return;
                     categoryButtons.forEach(btn => btn.classList.remove('active'));
                     categoryTitle.textContent = `Hasil Pencarian: "${searchTerm}"`;
                     categoryItemsContainer.innerHTML = '';
@@ -608,8 +672,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', function(e) {
+        if (searchBtn) searchBtn.addEventListener('click', performSearch);
+        if (searchInput) searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 performSearch();
             }
