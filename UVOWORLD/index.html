@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://apis.google.com https://www.gstatic.com https://*.firebaseio.com https://www.googleapis.com; script-src 'self' 'unsafe-eval' https://apis.google.com https://www.gstatic.com https://*.firebaseio.com; style-src 'self' 'unsafe-inline';">
+    <title>UVOWORLD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header Bar -->
+        <header class="header-bar" role="banner">
+            <div class="header-left">
+                <h1 class="domain-name" id="domainName">UVOWORLD</h1>
+            </div>
+            <div class="header-center">
+                <div class="currency-display">
+                    <span class="coin-counter" id="coinCounter">0</span>
+                    <span class="gem-counter" id="gemCounter">0</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="profile-btn" id="profileBtn" aria-label="User Profile">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Game Canvas -->
+        <main class="game-container">
+            <canvas id="gameCanvas" width="800" height="600" aria-label="Game World"></canvas>
+            
+            <!-- Control Buttons -->
+            <div class="controls" role="toolbar" aria-label="Game Controls">
+                <button class="control-btn move-left" id="moveLeft" aria-label="Move Left">←</button>
+                <button class="control-btn move-right" id="moveRight" aria-label="Move Right">→</button>
+                <button class="control-btn jump" id="jump" aria-label="Jump">↑</button>
+                <button class="control-btn place-block" id="placeBlock" aria-label="Place Block">Place</button>
+                <button class="control-btn extract-seed" id="extractSeed" aria-label="Extract Seed">Extract</button>
+                <button class="control-btn inventory" id="inventoryBtn" aria-label="Open Inventory">Inventory</button>
+                <button class="control-btn seed-mixer" id="seedMixerBtn" aria-label="Open Seed Mixer">Mixer</button>
+                <button class="control-btn shop" id="shopBtn" aria-label="Open Shop">Shop</button>
+                <button class="control-btn domain-search" id="domainSearchBtn" aria-label="Search Domains">Domains</button>
+                <button class="control-btn trade" id="tradeBtn" aria-label="Initiate Trade">Trade</button>
+                <button class="control-btn vending" id="vendingBtn" aria-label="Open Vending">Vending</button>
+            </div>
+        </main>
+
+        <!-- Modals -->
+        <div id="loginModal" class="modal" role="dialog" aria-labelledby="loginTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="loginTitle">Login to UVOWORLD</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required aria-required="true">
+                    <input type="password" id="loginPassword" placeholder="Password" required aria-required="true">
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <button id="showRegister" class="link-btn">Register</button></p>
+            </div>
+        </div>
+
+        <div id="registerModal" class="modal" role="dialog" aria-labelledby="registerTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="registerTitle">Register for UVOWORLD</h2>
+                <form id="registerForm">
+                    <input type="text" id="registerUsername" placeholder="Username (4-10 chars)" required aria-required="true" minlength="4" maxlength="10">
+                    <input type="email" id="registerEmail" placeholder="Email" required aria-required="true">
+                    <input type="password" id="registerPassword" placeholder="Password (5-15 chars)" required aria-required="true" minlength="5" maxlength="15">
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already have an account? <button id="showLogin" class="link-btn">Login</button></p>
+            </div>
+        </div>
+
+        <div id="inventoryModal" class="modal" role="dialog" aria-labelledby="inventoryTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="inventoryTitle">Inventory</h2>
+                <div class="inventory-grid" id="inventoryGrid"></div>
+                <button class="close-btn" id="closeInventory">Close</button>
+            </div>
+        </div>
+
+        <div id="seedMixerModal" class="modal" role="dialog" aria-labelledby="mixerTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="mixerTitle">Seed Mixer</h2>
+                <div class="mixer-slots" id="mixerSlots">
+                    <div class="mixer-slot" data-slot="0" aria-label="Mixer Slot 1"></div>
+                    <div class="mixer-slot" data-slot="1" aria-label="Mixer Slot 2"></div>
+                    <div class="mixer-slot" data-slot="2" aria-label="Mixer Slot 3"></div>
+                </div>
+                <div class="mixer-controls">
+                    <button id="combineSeeds" aria-label="Combine Seeds">Combine</button>
+                    <button id="clearMixer" aria-label="Clear Mixer">Clear</button>
+                </div>
+                <div id="mixerResult" aria-live="polite"></div>
+                <button class="close-btn" id="closeMixer">Close</button>
+            </div>
+        </div>
+
+        <div id="shopModal" class="modal" role="dialog" aria-labelledby="shopTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="shopTitle">Shop</h2>
+                <div class="shop-items" id="shopItems"></div>
+                <button class="close-btn" id="closeShop">Close</button>
+            </div>
+        </div>
+
+        <div id="domainSearchModal" class="modal" role="dialog" aria-labelledby="domainSearchTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="domainSearchTitle">Domain Search</h2>
+                <input type="text" id="domainSearchInput" placeholder="Search domains...">
+                <div class="domain-results" id="domainResults"></div>
+                <button class="close-btn" id="closeDomainSearch">Close</button>
+            </div>
+        </div>
+
+        <div id="tradeModal" class="modal" role="dialog" aria-labelledby="tradeTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="tradeTitle">Trade</h2>
+                <div class="trade-container">
+                    <div class="trade-player">
+                        <h3>Your Items</h3>
+                        <div class="trade-inventory" id="tradePlayerInventory"></div>
+                    </div>
+                    <div class="trade-player">
+                        <h3>Partner Items</h3>
+                        <div class="trade-inventory" id="tradePartnerInventory"></div>
+                    </div>
+                </div>
+                <div class="trade-controls">
+                    <button id="confirmTrade" aria-label="Confirm Trade">Confirm</button>
+                    <button id="cancelTrade" aria-label="Cancel Trade">Cancel</button>
+                </div>
+                <button class="close-btn" id="closeTrade">Close</button>
+            </div>
+        </div>
+
+        <div id="vendingModal" class="modal" role="dialog" aria-labelledby="vendingTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="vendingTitle">Vending Machine</h2>
+                <div class="vending-container" id="vendingContainer"></div>
+                <button class="close-btn" id="closeVending">Close</button>
+            </div>
+        </div>
+
+        <div id="profileModal" class="modal" role="dialog" aria-labelledby="profileTitle" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="profileTitle">Profile</h2>
+                <div class="profile-info">
+                    <p>Username: <span id="profileUsername"></span></p>
+                    <p>Email: <span id="profileEmail"></span></p>
+                    <p>Domains: <span id="profileDomains"></span></p>
+                </div>
+                <button id="logoutBtn" aria-label="Logout">Logout</button>
+                <button class="close-btn" id="closeProfile">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="seeds-data.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
