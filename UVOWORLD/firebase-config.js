@@ -3,12 +3,12 @@
 
 // Firebase configuration object - to be replaced with actual values from Firebase Console
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "your-project.firebaseapp.com",
-    projectId: "your-project-id",
-    storageBucket: "your-project.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCAumGENjQDZuC6XKj2LqSNuw_Ejz7yKk0",
+    authDomain: "uvoworld-1.firebaseapp.com",
+    projectId: "uvoworld-1",
+    storageBucket: "uvoworld-1.firebasestorage.app",
+    messagingSenderId: "885277532590",
+    appId: "1:885277532590:web:a809fb385ef500f744683f"
 };
 
 // Initialize Firebase only if not already initialized
