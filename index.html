@@ -3,199 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UVOSHOP - Top Up Game Termurah & Terpercaya</title>
-    <link rel="stylesheet" href="asset/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:;">
+    <meta name="description" content="Topup Game Terpercaya, Murah, dan Cepat.">
+    <meta name="theme-color" content="#0f172a">
+    <title>TopupGame Store</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header dengan logo, search, dan login -->
-    <header>
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="https://github.com/AditGamHD/uvoshop/blob/main/uvoshop.png?raw=true" alt="UVOSHOP Logo">
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Cari game atau item...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <div class="user-actions">
-                    <button class="login-btn"><i class="fas fa-user"></i> Login</button>
-                </div>
-            </div>
+    <header class="app-header">
+        <div class="container header-content">
+            <a href="#" class="brand" data-link>Topup<span class="accent">Game</span></a>
+            <button id="admin-btn" class="btn-icon" aria-label="Upload Data">📂</button>
+            <input type="file" id="json-upload" accept=".json" hidden>
         </div>
     </header>
 
-    <!-- Banner Slider -->
-    <section class="banner">
-        <div class="slider">
-            <div class="slides">
-                <div class="slide active" style="background-image: url('https://raw.githubusercontent.com/AditGamHD/uvoshop/refs/heads/main/asset/image/7.jpg');">
-                    <div class="slide-content">
-                        <h2>Top Up Game Favorit Anda</h2>
-                        <p>Dapatkan bonus eksklusif untuk pembelian pertama</p>
-                        <button class="cta-btn">Beli Sekarang</button>
-                    </div>
-                </div>
-                <div class="slide" style="background-image: url('https://raw.githubusercontent.com/AditGamHD/uvoshop/refs/heads/main/asset/image/5.jpg');">
-                    <div class="slide-content">
-                        <h2>Voucher Game Termurah</h2>
-                        <p>Diskon hingga 20% untuk semua game</p>
-                        <button class="cta-btn">Lihat Promo</button>
-                    </div>
-                </div>
-                <div class="slide" style="background-image: url('https://raw.githubusercontent.com/AditGamHD/uvoshop/refs/heads/main/asset/image/6.jpg');">
-                    <div class="slide-content">
-                        <h2>Event Spesial Bulan Ini</h2>
-                        <p>Dapatkan item langka dengan harga terbatas</p>
-                        <button class="cta-btn">Ikuti Event</button>
-                    </div>
-                </div>
-                <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Promo+4');">
-                    <div class="slide-content">
-                        <h2>Metode Pembayaran Lengkap</h2>
-                        <p>Transfer bank, e-wallet, dan QRIS tersedia</p>
-                        <button class="cta-btn">Cara Bayar</button>
-                    </div>
-                </div>
-                <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Promo+5');">
-                    <div class="slide-content">
-                        <h2>Customer Service 24/7</h2>
-                        <p>Bantuan cepat melalui live chat dan WhatsApp</p>
-                        <button class="cta-btn">Hubungi Kami</button>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-nav">
-                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="slider-dots">
-                <!-- Dots akan diisi oleh JavaScript -->
-            </div>
-        </div>
-    </section>
+    <main id="app" class="container">
+        <div class="skeleton-loader"></div>
+    </main>
 
-    <!-- List Item Populer -->
-    <section class="popular-items">
+    <footer class="app-footer">
         <div class="container">
-            <h2 class="section-title">Item Populer</h2>
-            <div class="items-grid" id="popular-items">
-                <!-- Items akan diisi oleh JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- List Kategori -->
-    <section class="categories">
-        <div class="container">
-            <h2 class="section-title">Kategori Game</h2>
-            <div class="categories-list" id="categories-list">
-                <!-- Kategori akan diisi oleh JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Isi Kategori (Item) -->
-    <section class="category-items">
-        <div class="container">
-            <h2 class="section-title" id="category-title">Semua Game</h2>
-            <div class="items-grid" id="category-items">
-                <!-- Items akan diisi oleh JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <h3>UVOSHOP</h3>
-                    <p>Platform top up game terpercaya dengan pelayanan terbaik dan harga termurah. Transaksi cepat dan aman.</p>
-                    <div class="socials">
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section links">
-                    <h3>Peta Website</h3>
-                    <ul>
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#">Promo</a></li>
-                        <li><a href="#">Game</a></li>
-                        <li><a href="#">Cara Pembayaran</a></li>
-                        <li><a href="#">Bantuan</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section contact">
-                    <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-envelope"></i> aditzdev@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +62 856 4821 1278</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 UVOSHOP. All rights reserved. | Developed by <strong>ADITdeveloper</strong></p>
-            </div>
+            <p>&copy; 2025 TopupGame. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Modal Login -->
-    <div class="modal" id="login-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Login ke Akun Anda</h2>
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="username">Username atau Email</label>
-                    <input type="text" id="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" required>
-                </div>
-                <button type="submit" class="submit-btn">Login</button>
-            </form>
-            <p>Belum punya akun? <a href="#" id="register-link">Daftar di sini</a></p>
-        </div>
-    </div>
+    <div id="toast-container"></div>
 
-    <!-- Modal Beli -->
-    <div class="modal" id="buy-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="buy-title">Beli Item</h2>
-            <div class="buy-details">
-                <div class="game-info">
-                    <img id="buy-image" src="" alt="Game Logo">
-                    <div>
-                        <h3 id="buy-name"></h3>
-                        <p id="buy-developer"></p>
+    <template id="tpl-home">
+        <section class="hero">
+            <h1>Topup Game Termurah</h1>
+            <p>Proses instan, aman, dan terpercaya.</p>
+        </section>
+        <div class="search-bar">
+            <input type="text" id="search-game" placeholder="Cari game...">
+        </div>
+        <div class="games-grid" id="games-list"></div>
+    </template>
+
+    <template id="tpl-detail">
+        <button class="btn-back" data-action="home">← Kembali</button>
+        <div class="detail-layout">
+            <div class="game-info-card">
+                <img src="" alt="" class="game-thumb" id="detail-img">
+                <h2 id="detail-title"></h2>
+                <p id="detail-pub" class="text-muted"></p>
+                <div class="verification-badge">✓ Terverifikasi</div>
+            </div>
+            <div class="order-form">
+                <div class="form-section">
+                    <h3>1. Masukkan Data Akun</h3>
+                    <div class="input-group" id="input-fields"></div>
+                </div>
+                <div class="form-section">
+                    <h3>2. Pilih Nominal</h3>
+                    <div class="items-grid" id="items-list"></div>
+                </div>
+                <div class="form-section">
+                    <h3>3. Pembayaran</h3>
+                    <div class="payment-methods">
+                        <div class="payment-item selected">
+                            <span>QRIS / E-Wallet / Transfer</span>
+                            <span class="badge">Otomatis</span>
+                        </div>
                     </div>
                 </div>
-                <div class="price-info">
-                    <p>Harga: <span id="buy-price"></span></p>
+                <div class="form-section">
+                    <h3>4. Kode Promo</h3>
+                    <div class="coupon-group">
+                        <input type="text" id="coupon-code" placeholder="Kode Promo (Opsional)">
+                        <button class="btn-secondary" id="apply-coupon">Cek</button>
+                    </div>
+                    <p id="coupon-msg" class="text-sm"></p>
                 </div>
-                <form id="buy-form">
-                    <div class="form-group">
-                        <label for="game-id">ID Game</label>
-                        <input type="text" id="game-id" required>
+                <div class="floating-checkout">
+                    <div class="price-display">
+                        <span class="label">Total Bayar</span>
+                        <span class="value" id="total-price">Rp 0</span>
                     </div>
-                    <div class="form-group">
-                        <label for="server">Server</label>
-                        <input type="text" id="server" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Konfirmasi Pembelian</button>
-                </form>
+                    <button class="btn-primary" id="btn-checkout" disabled>Beli Sekarang</button>
+                </div>
             </div>
         </div>
-    </div>
+    </template>
 
-    <script src="asset/jangandibuka.js"></script>
+    <template id="tpl-checkout">
+        <div class="checkout-modal">
+            <div class="modal-content">
+                <h2>Konfirmasi Pesanan</h2>
+                <div class="summary-list" id="summary-data"></div>
+                <div class="qr-section">
+                    <p>Scan untuk simulasi (Opsional)</p>
+                    <img id="qr-code" src="" alt="QR Code">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-secondary" data-action="cancel">Batal</button>
+                    <button class="btn-whatsapp" id="btn-confirm-wa">Lanjut ke WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-success">
+        <div class="success-page">
+            <div class="icon-check">✓</div>
+            <h2>Pesanan Dibuat!</h2>
+            <p>Silakan selesaikan pembayaran di WhatsApp.</p>
+            <button class="btn-primary" data-action="home">Ke Beranda</button>
+        </div>
+    </template>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
