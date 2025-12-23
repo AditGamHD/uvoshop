@@ -1,118 +1,172 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:;">
-    <meta name="description" content="Topup Game Terpercaya, Murah, dan Cepat.">
-    <meta name="theme-color" content="#0f172a">
-    <title>TopupGame Store</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="UVOSHOP - Toko online terpercaya untuk top-up game, voucher, pulsa, dan e-wallet">
+<title>UVOSHOP - Top Up Game, Voucher & Pulsa Termurah</title>
+<link rel="stylesheet" href="aditdev/style.css">
 </head>
 <body>
-    <header class="app-header">
-        <div class="container header-content">
-            <a href="#" class="brand" data-link>Topup<span class="accent">Game</span></a>
-            <button id="admin-btn" class="btn-icon" aria-label="Upload Data">📂</button>
-            <input type="file" id="json-upload" accept=".json" hidden>
-        </div>
-    </header>
+<header class="header">
+<div class="container">
+<div class="header-content">
+<a href="#" class="logo" id="logoLink">
+<img src="https://placehold.co/150x50/0b74ff/ffffff/png?text=UVOSHOP" alt="UVOSHOP Logo" id="logoImg">
+</a>
+<div class="search-container">
+<svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="11" cy="11" r="8"></circle>
+<path d="m21 21-4.35-4.35"></path>
+</svg>
+<input type="text" class="search-input" id="searchInput" placeholder="Cari produk...">
+</div>
+<button class="menu-toggle" id="menuToggle" aria-label="Menu">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="3" y1="12" x2="21" y2="12"></line>
+<line x1="3" y1="6" x2="21" y2="6"></line>
+<line x1="3" y1="18" x2="21" y2="18"></line>
+</svg>
+</button>
+</div>
+</div>
+</header>
 
-    <main id="app" class="container">
-        <div class="skeleton-loader"></div>
-    </main>
+<main class="main" id="mainContent">
+<div class="home-view" id="homeView">
+<section class="banner-section">
+<div class="container">
+<div class="banner-carousel" id="bannerCarousel">
+<div class="banner-slides" id="bannerSlides">
+<div class="banner-slide active">
+<img src="https://placehold.co/1200x675/0b74ff/ffffff/png?text=Promo+Spesial+UVOSHOP" alt="Banner 1" loading="lazy">
+</div>
+<div class="banner-slide">
+<img src="https://placehold.co/1200x675/ff7a59/ffffff/png?text=Top+Up+Game+Termurah" alt="Banner 2" loading="lazy">
+</div>
+<div class="banner-slide">
+<img src="https://placehold.co/1200x675/00a86b/ffffff/png?text=Pembayaran+Mudah" alt="Banner 3" loading="lazy">
+</div>
+<div class="banner-slide">
+<img src="https://placehold.co/1200x675/9b59b6/ffffff/png?text=Proses+Cepat+Otomatis" alt="Banner 4" loading="lazy">
+</div>
+<div class="banner-slide">
+<img src="https://placehold.co/1200x675/e74c3c/ffffff/png?text=Terpercaya+Sejak+2023" alt="Banner 5" loading="lazy">
+</div>
+</div>
+<button class="banner-nav banner-prev" id="bannerPrev" aria-label="Previous">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+</button>
+<button class="banner-nav banner-next" id="bannerNext" aria-label="Next">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</button>
+<div class="banner-dots" id="bannerDots"></div>
+</div>
+</div>
+</section>
 
-    <footer class="app-footer">
-        <div class="container">
-            <p>&copy; 2025 TopupGame. All rights reserved.</p>
-        </div>
-    </footer>
+<section class="categories-section">
+<div class="container">
+<h2 class="section-title">Kategori</h2>
+<div class="categories-scroll">
+<div class="categories-grid" id="categoriesGrid">
+<button class="category-card active" data-category="all">
+<svg class="category-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect x="3" y="3" width="7" height="7"></rect>
+<rect x="14" y="3" width="7" height="7"></rect>
+<rect x="14" y="14" width="7" height="7"></rect>
+<rect x="3" y="14" width="7" height="7"></rect>
+</svg>
+<span>Semua</span>
+</button>
+</div>
+</div>
+</div>
+</section>
 
-    <div id="toast-container"></div>
+<section class="products-section">
+<div class="container">
+<div class="products-header">
+<h2 class="section-title">Produk Tersedia</h2>
+<div class="filter-controls">
+<select class="filter-select" id="sortSelect">
+<option value="">Urutkan</option>
+<option value="price-asc">Harga: Rendah - Tinggi</option>
+<option value="price-desc">Harga: Tinggi - Rendah</option>
+</select>
+<label class="filter-toggle">
+<input type="checkbox" id="rekomToggle">
+<span>Rekomendasi</span>
+</label>
+</div>
+</div>
+<div class="products-grid" id="productsGrid">
+<div class="loading-state">Memuat produk...</div>
+</div>
+</div>
+</section>
+</div>
 
-    <template id="tpl-home">
-        <section class="hero">
-            <h1>Topup Game Termurah</h1>
-            <p>Proses instan, aman, dan terpercaya.</p>
-        </section>
-        <div class="search-bar">
-            <input type="text" id="search-game" placeholder="Cari game...">
-        </div>
-        <div class="games-grid" id="games-list"></div>
-    </template>
+<div class="product-view hidden" id="productView">
+<div class="container">
+<button class="back-btn" id="backBtn">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+Kembali
+</button>
+<div class="product-detail" id="productDetail"></div>
+</div>
+</div>
+</main>
 
-    <template id="tpl-detail">
-        <button class="btn-back" data-action="home">← Kembali</button>
-        <div class="detail-layout">
-            <div class="game-info-card">
-                <img src="" alt="" class="game-thumb" id="detail-img">
-                <h2 id="detail-title"></h2>
-                <p id="detail-pub" class="text-muted"></p>
-                <div class="verification-badge">✓ Terverifikasi</div>
-            </div>
-            <div class="order-form">
-                <div class="form-section">
-                    <h3>1. Masukkan Data Akun</h3>
-                    <div class="input-group" id="input-fields"></div>
-                </div>
-                <div class="form-section">
-                    <h3>2. Pilih Nominal</h3>
-                    <div class="items-grid" id="items-list"></div>
-                </div>
-                <div class="form-section">
-                    <h3>3. Pembayaran</h3>
-                    <div class="payment-methods">
-                        <div class="payment-item selected">
-                            <span>QRIS / E-Wallet / Transfer</span>
-                            <span class="badge">Otomatis</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-section">
-                    <h3>4. Kode Promo</h3>
-                    <div class="coupon-group">
-                        <input type="text" id="coupon-code" placeholder="Kode Promo (Opsional)">
-                        <button class="btn-secondary" id="apply-coupon">Cek</button>
-                    </div>
-                    <p id="coupon-msg" class="text-sm"></p>
-                </div>
-                <div class="floating-checkout">
-                    <div class="price-display">
-                        <span class="label">Total Bayar</span>
-                        <span class="value" id="total-price">Rp 0</span>
-                    </div>
-                    <button class="btn-primary" id="btn-checkout" disabled>Beli Sekarang</button>
-                </div>
-            </div>
-        </div>
-    </template>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<img src="https://placehold.co/120x40/0b74ff/ffffff/png?text=UVOSHOP" alt="UVOSHOP" class="footer-logo">
+<p class="footer-copyright">© 2023 - <span id="currentYear"></span> UVOSHOP</p>
+<div class="footer-social">
+<a href="#" aria-label="Instagram">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+</svg>
+</a>
+<a href="#" aria-label="Facebook">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
 
-    <template id="tpl-checkout">
-        <div class="checkout-modal">
-            <div class="modal-content">
-                <h2>Konfirmasi Pesanan</h2>
-                <div class="summary-list" id="summary-data"></div>
-                <div class="qr-section">
-                    <p>Scan untuk simulasi (Opsional)</p>
-                    <img id="qr-code" src="" alt="QR Code">
-                </div>
-                <div class="modal-actions">
-                    <button class="btn-secondary" data-action="cancel">Batal</button>
-                    <button class="btn-whatsapp" id="btn-confirm-wa">Lanjut ke WhatsApp</button>
-                </div>
-            </div>
-        </div>
-    </template>
+<div class="modal hidden" id="previewModal">
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="modal-content">
+<div class="modal-header">
+<h3>Preview Pesanan</h3>
+<button class="modal-close" id="modalClose">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="18" y1="6" x2="6" y2="18"></line>
+<line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+</button>
+</div>
+<div class="modal-body" id="modalBody"></div>
+<div class="modal-actions">
+<button class="btn btn-secondary" id="copyBtn">Copy Pesan</button>
+<button class="btn btn-primary" id="sendWaBtn">Kirim via WhatsApp</button>
+</div>
+</div>
+</div>
 
-    <template id="tpl-success">
-        <div class="success-page">
-            <div class="icon-check">✓</div>
-            <h2>Pesanan Dibuat!</h2>
-            <p>Silakan selesaikan pembayaran di WhatsApp.</p>
-            <button class="btn-primary" data-action="home">Ke Beranda</button>
-        </div>
-    </template>
-
-    <script src="js/app.js"></script>
+<script src="aditdev/aditdev.js"></script>
 </body>
 </html>
