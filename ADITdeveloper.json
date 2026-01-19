@@ -1,0 +1,320 @@
+{
+  "site": {
+    "name": "UVOSHOP",
+    "shortName": "UVOSHOP",
+    "description": "Tempat terbaik untuk membeli voucher game online dengan proses cepat dan aman",
+    "locale": "id-ID",
+    "currency": "IDR",
+    "theme": "dark",
+    "status": "open",
+    "logo": "https://picsum.photos/seed/logo/100/100"
+  },
+  "admin": {
+    "admin_name": "Admin GameStore",
+    "whatsapp_number": "6285311111010",
+    "email": "admin@gamestore.id"
+  },
+  "whatsapp_message_template": "Halo {{admin_name}}, saya ingin memesan:\n\n*ID Pesanan:* {{order_id}}\n*Produk:* {{product_name}}\n*Denom:* {{denom}}\n*Harga:* {{price}}\n*Jumlah:* {{quantity}}\n*Total:* {{total}}\n\n*Data Penerima:*\nUsername: {{username}}\nWhatsApp: {{phone}}\n\n*Metode Pembayaran:* {{payment_method}}\n\n*Instruksi Pembayaran:*\n{{payment_instructions}}\n\nTerima kasih.",
+  "payment_methods": [
+    {
+      "id": "qris",
+      "name": "QRIS",
+      "image": "https://picsum.photos/seed/qris/100/100",
+      "type": "qris",
+      "fee": 1500,
+      "currency": "IDR",
+      "enabled": true,
+      "instructions": [
+        "Buka aplikasi e-wallet atau mobile banking Anda",
+        "Pilih menu Scan QR Code",
+        "Scan QR code yang ditampilkan",
+        "Masukkan nominal sesuai total pembayaran",
+        "Konfirmasi pembayaran"
+      ],
+      "account_info": {},
+      "qr_image": "https://picsum.photos/seed/qrcode/200/200"
+    },
+    {
+      "id": "bca",
+      "name": "Transfer Bank BCA",
+      "image": "https://picsum.photos/seed/bca/100/100",
+      "type": "bank",
+      "fee": 0,
+      "currency": "IDR",
+      "enabled": true,
+      "instructions": [
+        "Buka aplikasi BCA mobile atau internet banking",
+        "Pilih menu transfer ke rekening BCA",
+        "Masukkan nomor rekening: 1234567890",
+        "Masukkan nominal sesuai total pembayaran",
+        "Konfirmasi transfer"
+      ],
+      "account_info": {
+        "bank_name": "BCA",
+        "account_number": "1234567890",
+        "account_name": "GAMESTORE ID"
+      }
+    },
+    {
+      "id": "indomaret",
+      "name": "Indomaret",
+      "image": "https://picsum.photos/seed/indomaret/100/100",
+      "type": "retail",
+      "fee": 2500,
+      "currency": "IDR",
+      "enabled": true,
+      "instructions": [
+        "Kunjungi gerai Indomaret terdekat",
+        "Sampaikan kepada kasir ingin bayar GameStore",
+        "Berikan kode pembayaran: INDO12345",
+        "Bayar sesuai total pembayaran",
+        "Simpan struk sebagai bukti pembayaran"
+      ],
+      "account_info": {}
+    },
+    {
+      "id": "dana",
+      "name": "DANA",
+      "image": "https://picsum.photos/seed/dana/100/100",
+      "type": "e-wallet",
+      "fee": 1000,
+      "currency": "IDR",
+      "enabled": true,
+      "instructions": [
+        "Buka aplikasi DANA",
+        "Pilih menu Kirim Uang",
+        "Masukkan nomor: 081234567890",
+        "Masukkan nominal sesuai total pembayaran",
+        "Tambahkan catatan: Pembayaran GameStore"
+      ],
+      "account_info": {
+        "account_number": "081234567890",
+        "account_name": "GAMESTORE ID"
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "mlbb",
+      "name": "Mobile Legends",
+      "category": "Game",
+      "publisher": "Moonton",
+      "images": [
+        "https://picsum.photos/seed/mlbb/400/300"
+      ],
+      "badges": ["hot", "recommend"],
+      "description": "Voucher Diamond Mobile Legends untuk semua server",
+      "items": [
+        {
+          "sku": "MLBB-5",
+          "denom": "5 Diamond",
+          "price": 1500
+        },
+        {
+          "sku": "MLBB-12",
+          "denom": "12 Diamond",
+          "price": 3000
+        },
+        {
+          "sku": "MLBB-50",
+          "denom": "50 Diamond",
+          "price": 12500
+        },
+        {
+          "sku": "MLBB-100",
+          "denom": "100 Diamond",
+          "price": 25000
+        }
+      ],
+      "recommend": true
+    },
+    {
+      "id": "ff",
+      "name": "Free Fire",
+      "category": "Game",
+      "publisher": "Garena",
+      "images": [
+        "https://picsum.photos/seed/ff/400/300"
+      ],
+      "badges": ["hot"],
+      "description": "Voucher Diamond Free Fire untuk region Indonesia",
+      "items": [
+        {
+          "sku": "FF-5",
+          "denom": "5 Diamond",
+          "price": 1000
+        },
+        {
+          "sku": "FF-50",
+          "denom": "50 Diamond",
+          "price": 10000
+        },
+        {
+          "sku": "FF-100",
+          "denom": "100 Diamond",
+          "price": 20000
+        }
+      ],
+      "recommend": true
+    },
+    {
+      "id": "pubg",
+      "name": "PUBG Mobile",
+      "category": "Game",
+      "publisher": "Tencent",
+      "images": [
+        "https://picsum.photos/seed/pubg/400/300"
+      ],
+      "badges": [],
+      "description": "Voucher UC PUBG Mobile untuk semua server",
+      "items": [
+        {
+          "sku": "PUBG-60",
+          "denom": "60 UC",
+          "price": 15000
+        },
+        {
+          "sku": "PUBG-325",
+          "denom": "325 UC",
+          "price": 75000
+        },
+        {
+          "sku": "PUBG-660",
+          "denom": "660 UC",
+          "price": 150000
+        }
+      ],
+      "recommend": false
+    },
+    {
+      "id": "valorant",
+      "name": "Valorant",
+      "category": "Game",
+      "publisher": "Riot Games",
+      "images": [
+        "https://picsum.photos/seed/valorant/400/300"
+      ],
+      "badges": ["recommend"],
+      "description": "Voucher Points Valorant untuk region SEA",
+      "items": [
+        {
+          "sku": "VAL-125",
+          "denom": "125 Points",
+          "price": 20000
+        },
+        {
+          "sku": "VAL-420",
+          "denom": "420 Points",
+          "price": 65000
+        },
+        {
+          "sku": "VAL-700",
+          "denom": "700 Points",
+          "price": 100000
+        }
+      ],
+      "recommend": true
+    },
+    {
+      "id": "steam",
+      "name": "Steam Wallet",
+      "category": "Wallet",
+      "publisher": "Valve",
+      "images": [
+        "https://picsum.photos/seed/steam/400/300"
+      ],
+      "badges": [],
+      "description": "Saldo Steam Wallet untuk pembelian game dan item",
+      "items": [
+        {
+          "sku": "STEAM-20",
+          "denom": "20.000 IDR",
+          "price": 20000
+        },
+        {
+          "sku": "STEAM-50",
+          "denom": "50.000 IDR",
+          "price": 50000
+        },
+        {
+          "sku": "STEAM-100",
+          "denom": "100.000 IDR",
+          "price": 100000
+        }
+      ],
+      "recommend": false
+    },
+    {
+      "id": "googleplay",
+      "name": "Google Play",
+      "category": "Wallet",
+      "publisher": "Google",
+      "images": [
+        "https://picsum.photos/seed/googleplay/400/300"
+      ],
+      "badges": ["recommend"],
+      "description": "Voucher Google Play untuk pembelian aplikasi dan game",
+      "items": [
+        {
+          "sku": "GP-25",
+          "denom": "25.000 IDR",
+          "price": 25000
+        },
+        {
+          "sku": "GP-50",
+          "denom": "50.000 IDR",
+          "price": 50000
+        },
+        {
+          "sku": "GP-100",
+          "denom": "100.000 IDR",
+          "price": 100000
+        }
+      ],
+      "recommend": true
+    }
+  ],
+  "promos": [
+    {
+      "title": "New User Discount",
+      "description": "Diskon 10% untuk pembelian pertama dengan minimum pembelian Rp 50.000",
+      "code": "NEW10",
+      "valid_until": "31 Desember 2023",
+      "image": "https://picsum.photos/seed/promo1/400/300"
+    },
+    {
+      "title": "Weekend Special",
+      "description": "Cashback 5% untuk semua pembelian di hari Sabtu dan Minggu",
+      "code": "WEEKEND5",
+      "valid_until": "31 Desember 2023",
+      "image": "https://picsum.photos/seed/promo2/400/300"
+    }
+  ],
+  "articles": [
+    {
+      "title": "Cara Top Up Game dengan Aman",
+      "excerpt": "Panduan lengkap untuk melakukan top up game online dengan aman dan terhindar dari penipuan",
+      "content": "Dalam artikel ini kita akan membahas cara-cara melakukan top up game online dengan aman...",
+      "date": "15 Oktober 2023",
+      "image": "https://picsum.photos/seed/article1/400/300"
+    },
+    {
+      "title": "Event Spesial Mobile Legends 2023",
+      "excerpt": "Daftar event spesial Mobile Legends yang akan datang di akhir tahun 2023",
+      "content": "Moonton telah mengumumkan serangkaian event spesial untuk Mobile Legends...",
+      "date": "10 Oktober 2023",
+      "image": "https://picsum.photos/seed/article2/400/300"
+    }
+  ],
+  "social": {
+    "facebook": "https://facebook.com/gamestoreid",
+    "instagram": "https://instagram.com/gamestoreid",
+    "twitter": "https://twitter.com/gamestoreid",
+    "youtube": "https://youtube.com/gamestoreid"
+  },
+  "open_hours": {
+    "weekdays": "08:00 - 22:00 WIB",
+    "weekends": "24 jam non-stop",
+    "holiday": "24 jam non-stop"
+  }
+}
