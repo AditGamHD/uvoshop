@@ -1,110 +1,182 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<!-- WEB UVOSHOP BY ADITdeveloper -->
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>UVOSHOP - Embed (Responsive)</title>
-<style>
-  :root {
-    --vh: 1vh;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>UVOSHOP</title>
 
-  *,*::before,*::after{box-sizing:border-box}
-  html,body{height:100%;margin:0;padding:0;background:#fff;overflow:hidden}
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+  <!-- Meta SEO dasar -->
+  <meta name="description" content="Topup Game Cepat dan Lengkap" />
+  <meta name="keywords" content="topup game, top up game, voucher game, diamond mobile legends, topup pubg, topup free fire, topup game murah" />
+  <meta name="author" content="UVOSHOP - ADITdeveloper" />
+  <meta name="robots" content="index, follow" />
 
-  #remote{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:calc(var(--vh, 1vh) * 100);
-    border:0;
-    display:block;
-  }
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="UVOSHOP" />
+  <meta property="og:description" content="Topup Game Cepat dan Lengkap" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:site_name" content="UVOSHOP" />
 
-  .fallback{
-    position:fixed;
-    left:8px;
-    right:8px;
-    bottom:14px;          
-    background:#fff;
-    padding:10px 12px;
-    border-radius:10px;
-    box-shadow:0 6px 18px rgba(0,0,0,.12);
-    text-align:center;
-    font-size:14px;
-    line-height:1.2;
-    z-index:9999;
-    display:none;
-  }
-  .fallback a{
-    display:inline-block;
-    margin-top:8px;
-    padding:8px 12px;
-    border-radius:6px;
-    text-decoration:none;
-    border:1px solid #e5e7eb;
-    color:inherit;
-    background:transparent;
-  }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UVOSHOP" />
+  <meta name="twitter:description" content="Topup Game Cepat dan Lengkap" />
 
-  .fallback{ padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
-  #remote{ padding-bottom: env(safe-area-inset-bottom); }
-</style>
+  <!-- Favicon & App icons (letakkan file-file ini di root) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Structured data (JSON-LD) sederhana -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "UVOSHOP",
+    "url": "https://example.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://example.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <style>
+    :root { --vh: 1vh; }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;padding:0;background:#fff;font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial}
+    header{padding:12px 14px;border-bottom:1px solid #eee}
+    header h1{margin:0;font-size:20px;line-height:1}
+    header p{margin:6px 0 0;color:#444;font-size:14px}
+
+    /* iframe full responsive berdasarkan --vh */
+    #remote {
+      position:fixed;
+      top:64px; /* beri ruang untuk header agar terlihat judul */
+      left:0;
+      width:100%;
+      height:calc(var(--vh, 1vh) * 100 - 64px);
+      border:0;
+    }
+
+    /* container untuk 20 html command di bawah iframe (letakkan di bawah sebagai block yang terlihat) */
+    #commands {
+      position:fixed;
+      left:8px;
+      right:8px;
+      bottom:12px;
+      background:rgba(255,255,255,0.95);
+      padding:8px;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      max-height:160px;
+      overflow:auto;
+      font-size:13px;
+      z-index:9999;
+    }
+    .html-command{padding:4px 2px;border-bottom:1px dashed #eee}
+    .html-command:last-child{border-bottom:0}
+
+    /* fallback jika iframe diblokir */
+    .fallback{
+      position:fixed;
+      left:12px; right:12px;
+      bottom:180px;
+      background:#fff;
+      padding:10px 12px;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,.12);
+      text-align:center;
+      display:none;
+      z-index:10000;
+    }
+    .fallback a{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:6px;text-decoration:none;border:1px solid #ddd}
+    /* safe area support */
+    #commands{ padding-bottom: calc(8px + env(safe-area-inset-bottom)); }
+    #remote{ padding-bottom: env(safe-area-inset-bottom); top:calc(64px + env(safe-area-inset-top)); }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>UVOSHOP</h1>
+    <p>Topup Game Cepat dan Lengkap</p>
+  </header>
+
+  <!-- iframe menampilkan situs target -->
   <iframe id="remote"
     src="https://uvoshop.olshopku.com"
     title="UVOSHOP"
     allow="geolocation; microphone; camera; clipboard-read; clipboard-write; payment">
   </iframe>
 
-  <div id="fallback" class="fallback">
-    Halaman tidak dapat ditampilkan di dalam iframe (mungkin situs menolak embed).
-    <div><a id="open" target="_blank" rel="noopener">Buka di tab baru</a></div>
+  <!-- Fallback jika embed diblokir -->
+  <div id="fallback" class="fallback" role="alert">
+    Halaman tidak dapat ditampilkan di dalam iframe (mungkin situs menolak embed).<br>
+    <a id="open" href="#" target="_blank" rel="noopener">Buka di tab baru</a>
+  </div>
+
+  <!-- 20 HTML commands sesuai permintaan -->
+  <div id="commands" aria-hidden="false">
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
+    <div class="html-command">UVOSHOP - ADITdeveloper</div>
   </div>
 
 <script>
-/*
-*/
-(function(){
-  var setVh = function(){
-    var vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', vh + 'px');
-  };
-
-  setVh();
-
-  window.addEventListener('resize', setVh);
-  window.addEventListener('orientationchange', function(){
-    setTimeout(setVh, 300);
-  });
-
-  var iframe = document.getElementById('remote');
-  var fb = document.getElementById('fallback');
-  var openBtn = document.getElementById('open');
-  openBtn.href = iframe.src;
-
-  var loaded = false;
-  iframe.addEventListener('load', function(){ loaded = true; });
-
-  setTimeout(function(){
-    if(!loaded){
-      fb.style.display = 'block';
-      return;
+  // set --vh berdasarkan window.innerHeight untuk menghindari crop di mobile
+  (function(){
+    function setVh(){
+      var vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', vh + 'px');
     }
-    // UVOSHOP
-    try {
-      var doc = iframe.contentDocument || iframe.contentWindow.document;
-      if(doc && doc.body && doc.body.childElementCount === 0){
-        fb.style.display = 'block';
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', function(){ setTimeout(setVh, 250); });
+
+    var iframe = document.getElementById('remote');
+    var fb = document.getElementById('fallback');
+    var openBtn = document.getElementById('open');
+    openBtn.href = iframe.src;
+
+    var loaded = false;
+    iframe.addEventListener('load', function(){ loaded = true; });
+
+    // jika setelah 6 detik belum load -> tampilkan fallback
+    setTimeout(function(){
+      if(!loaded){ fb.style.display = 'block'; }
+      else {
+        try {
+          var doc = iframe.contentDocument || iframe.contentWindow.document;
+          if(doc && doc.body && doc.body.childElementCount === 0){
+            fb.style.display = 'block';
+          }
+        } catch(e){
+          // cross-origin, tidak bisa cek -> anggap berhasil
+        }
       }
-    } catch(e){
-    }
-  }, 6000);
-})();
+    }, 6000);
+  })();
 </script>
 </body>
 </html>
