@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Download Aplikasi Aman dan Cepat">
-  <title>UVOSHOP Download</title>
+  <meta name="description" content="Topup Game Termurah Dan Terlengkap">
+  
+  <title>UVOSHOP - Download</title>
   
   <style>
     /* --- 1. CORE VARIABLES & RESET --- */
     :root {
-      --primary: #0b57cf; /* Google Play Blue */
-      --green: #01875f;   /* Google Play Green */
+      --primary: #0b57cf; 
+      --green: #01875f;
       --bg: #ffffff;
       --text: #202124;
       --muted: #5f6368;
       --border: #dadce0;
       --surface: #f8f9fa;
-      --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
       --radius: 12px;
       --anim-speed: 0.3s;
     }
@@ -43,14 +43,12 @@
       overflow-x: hidden;
     }
 
-    /* Hilangkan scrollbar default tapi tetap bisa scroll */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
     
     a { text-decoration: none; color: inherit; }
-    ul { list-style: none; padding: 0; margin: 0; }
 
-    /* --- 3. LAYOUT & HEADER --- */
+    /* --- 3. HEADER --- */
     .header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -75,26 +73,23 @@
       animation: fadeIn 0.6s ease;
     }
 
-    /* --- 4. APP CARD HERO --- */
+    /* --- 4. APP INFO --- */
     .app-header { display: flex; gap: 24px; margin-bottom: 30px; }
     
     .app-icon {
       width: 90px; height: 90px;
-      border-radius: 20%; /* Squircle look */
+      border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       flex-shrink: 0;
       background: var(--surface);
-      transition: transform var(--anim-speed);
     }
-    .app-icon:hover { transform: scale(1.05); }
     .app-icon img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
     .app-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-    .app-title { font-size: 28px; font-weight: 500; margin: 0 0 4px 0; letter-spacing: -0.5px; }
-    .dev-name { color: var(--primary); font-weight: 500; font-size: 14px; margin-bottom: 12px; display: inline-block; }
+    .app-title { font-size: 26px; font-weight: 600; margin: 0 0 4px 0; color: var(--text); }
+    .dev-name { color: var(--green); font-weight: 600; font-size: 14px; margin-bottom: 12px; }
     
-    /* Stats Bar */
     .stats-row { display: flex; align-items: center; gap: 20px; margin-top: auto; }
     .stat-item { display: flex; flex-direction: column; align-items: center; font-size: 12px; color: var(--muted); position: relative; padding-right: 20px; }
     .stat-item::after { content: ''; position: absolute; right: 0; top: 10%; height: 80%; width: 1px; background: var(--border); }
@@ -102,41 +97,32 @@
     .stat-val { font-weight: 500; font-size: 14px; color: var(--text); display: flex; align-items: center; gap: 4px; }
     .stat-val svg { width: 12px; height: 12px; fill: var(--text); }
 
-    /* --- 5. ACTION BUTTONS --- */
+    /* --- 5. BUTTONS --- */
     .actions { width: 100%; display: flex; gap: 12px; margin-bottom: 30px; }
     
     .btn {
       flex: 1;
       display: flex; align-items: center; justify-content: center;
-      padding: 10px 24px;
+      padding: 12px 24px;
       border-radius: 8px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 14px;
       cursor: pointer;
       transition: all 0.2s;
-      border: 1px solid transparent;
+      border: none;
       position: relative;
       overflow: hidden;
     }
     
-    /* Ripple Effect setup */
-    .btn::after {
-      content: ""; position: absolute; top: 50%; left: 50%;
-      width: 0; height: 0; background: rgba(255,255,255,0.3);
-      border-radius: 50%; transform: translate(-50%, -50%);
-      transition: width 0.3s ease, height 0.3s ease;
-    }
-    .btn:active::after { width: 200px; height: 200px; }
-
-    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
-    .btn-primary:active { transform: scale(0.98); background: #00704e; }
+    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 2px 6px rgba(1,135,95,0.2); }
+    .btn-primary:active { transform: scale(0.98); opacity: 0.9; }
     
-    .btn-outline { background: transparent; color: var(--green); border-color: var(--border); }
+    .btn-outline { background: transparent; color: var(--green); border: 1px solid var(--border); }
     .btn-outline:hover { background: #f0fdf4; }
 
-    /* --- 6. SCREENSHOTS CAROUSEL --- */
+    /* --- 6. SCREENSHOTS --- */
     .scroll-container {
-      display: flex; gap: 16px;
+      display: flex; gap: 12px;
       overflow-x: auto;
       padding-bottom: 16px;
       scroll-snap-type: x mandatory;
@@ -145,23 +131,25 @@
     .screen-shot {
       flex: 0 0 140px;
       height: 250px;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       scroll-snap-align: start;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       background: var(--surface);
+      border: 1px solid var(--surface);
     }
     .screen-shot img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
-    /* --- 7. CONTENT SECTIONS --- */
-    .section-title { display: flex; justify-content: space-between; align-items: center; font-size: 18px; font-weight: 500; margin-bottom: 16px; }
-    .section-arrow { fill: var(--muted); width: 20px; }
+    /* --- 7. DESCRIPTION --- */
+    .content-box { margin-bottom: 40px; }
+    .section-title { display: flex; justify-content: space-between; align-items: center; font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+    .section-arrow { fill: var(--muted); width: 24px; }
     
     .desc-box { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 24px; }
-    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
-    .tag { border: 1px solid var(--border); padding: 4px 12px; border-radius: 16px; font-size: 13px; color: var(--muted); }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { border: 1px solid var(--border); padding: 6px 14px; border-radius: 100px; font-size: 12px; color: var(--muted); font-weight: 500; }
 
-    /* --- 8. FLOATING NOTIFICATION (TOAST) --- */
+    /* --- 8. TOAST NOTIFICATION --- */
     #toast-container {
       position: fixed;
       bottom: 30px;
@@ -169,48 +157,41 @@
       transform: translateX(-50%) translateY(100px);
       z-index: 9999;
       opacity: 0;
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       pointer-events: none;
+      width: max-content;
+      max-width: 90%;
     }
-
-    /* Class untuk memunculkan notifikasi */
-    #toast-container.active {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
+    #toast-container.active { transform: translateX(-50%) translateY(0); opacity: 1; }
 
     .toast-box {
-      background: #323232;
+      background: #202124;
       color: #fff;
       padding: 14px 24px;
-      border-radius: 28px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.24);
+      border-radius: 50px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
       display: flex;
       align-items: center;
       gap: 12px;
-      min-width: 300px;
     }
-    .toast-icon { width: 20px; height: 20px; fill: var(--green); } /* Ikon di toast */
+    .toast-icon { width: 20px; height: 20px; fill: var(--green); }
     .toast-msg { font-size: 14px; font-weight: 500; }
 
     /* --- 9. ANIMATIONS --- */
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
 
-    /* --- RESPONSIVE MOBILE --- */
+    /* MOBILE RESPONSIVE */
     @media (max-width: 600px) {
-      .app-header { flex-direction: row; gap: 16px; }
-      .app-icon { width: 72px; height: 72px; }
+      .app-header { gap: 16px; }
+      .app-icon { width: 72px; height: 72px; border-radius: 14px; }
       .app-title { font-size: 22px; }
       .main-container { margin-top: 70px; padding: 0 20px; }
-      .stat-item { padding-right: 12px; }
-      .screen-shot { flex: 0 0 110px; height: 200px; }
+      .screen-shot { flex: 0 0 120px; height: 220px; }
     }
   </style>
 </head>
 <body>
-
-  <div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none;display:none;" id="protector"></div>
 
   <header class="header">
     <div class="logo-area">
@@ -222,22 +203,22 @@
   <div class="main-container">
     
     <div class="app-header">
-      <div class="app-icon"><img id="icon-img" src="" alt="App Icon"></div>
+      <div class="app-icon"><img id="icon-img" src="" alt="UVOSHOP"></div>
       <div class="app-info">
-        <h1 class="app-title" id="app-name">Loading...</h1>
-        <a href="#" class="dev-name" id="dev-name">Developer</a>
+        <h1 class="app-title" id="app-name">...</h1>
+        <div class="dev-name">ADITdeveloper</div>
         
         <div class="stats-row">
           <div class="stat-item">
-            <span class="stat-val" id="rating-val">0.0 <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+            <span class="stat-val">4.9 <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
             <span>Ulasan</span>
           </div>
           <div class="stat-item">
-            <span class="stat-val" id="size-val">0 MB</span>
+            <span class="stat-val">15 MB</span>
             <span>Ukuran</span>
           </div>
           <div class="stat-item">
-            <span class="stat-val" id="dl-val">0+</span>
+            <span class="stat-val">5k+</span>
             <span>Download</span>
           </div>
         </div>
@@ -249,20 +230,20 @@
       <button class="btn btn-outline" id="share-btn">Bagikan</button>
     </div>
 
-    <div class="scroll-container" id="screenshots-area">
-      </div>
+    <div class="scroll-container" id="screenshots-area"></div>
 
     <div class="content-box">
       <div class="section-title">
         <span>Tentang aplikasi ini</span>
         <svg class="section-arrow" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
       </div>
-      <p class="desc-box" id="desc-text">Memuat deskripsi...</p>
+      <p class="desc-box" id="desc-text"></p>
       
       <div class="tags">
-        <span class="tag">Produktivitas</span>
-        <span class="tag">Alat</span>
-        <span class="tag">Komunikasi</span>
+        <span class="tag">Topup Game</span>
+        <span class="tag">Murah</span>
+        <span class="tag">Terlengkap</span>
+        <span class="tag">Belanja</span>
       </div>
     </div>
   </div>
@@ -277,39 +258,28 @@
   <script id="config-data" type="application/json">
   {
     "appName": "UVOSHOP",
-    "developer": "ADITdeveloper",
     "icon": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjKEMTtlZx6I5bQnMTw9AtOmAYikiiIloZ5h8Mr0e47WicdI2rp0gQojMGbYkBICw7poPd8lQESYKj6nb72nUJdABsEKsKBM1GVhU_ZDex-qbmbWpOyEzPVnoknQ8NWK0tdK5eMpPkh4QZnc8rWqn6kV5if3l2uxa79fjJFp41d9t3TbyTjryk8AIw3tFs/s320/WhatsApp%20Image%202025-04-28%20at%2009.28.49_45c5cb4f.jpg",
-    "rating": "4.8+",
-    "size": "32 MB",
-    "downloads": "12k+",
-    "desc": "Topup Game termurah dan terlengkap",
-    "apkUrl": "https://raw.githubusercontent.com/AditGamHD/uvoshop/main/download/uvoshop.apk
-",
+    "desc": "Topup Game Termurah Dan Terlengkap. Nikmati layanan cepat dan aman 24 jam.",
+    "apkUrl": "https://raw.githubusercontent.com/AditGamHD/uvoshop/main/download/uvoshop.apk",
     "screenshots": [
-      "https://via.placeholder.com/400x800/e0e0e0/ffffff?text=Login",
-      "https://via.placeholder.com/400x800/e0e0e0/ffffff?text=Dashboard",
-      "https://via.placeholder.com/400x800/e0e0e0/ffffff?text=Payment",
-      "https://via.placeholder.com/400x800/e0e0e0/ffffff?text=Success"
+      "https://via.placeholder.com/400x800/eeeeee/999999?text=UVOSHOP+Home",
+      "https://via.placeholder.com/400x800/eeeeee/999999?text=Daftar+Game",
+      "https://via.placeholder.com/400x800/eeeeee/999999?text=Metode+Bayar",
+      "https://via.placeholder.com/400x800/eeeeee/999999?text=Bukti+Transaksi"
     ]
   }
   </script>
 
   <script>
-    /* --- 1. CORE LOGIC --- */
     document.addEventListener("DOMContentLoaded", () => {
       const data = JSON.parse(document.getElementById('config-data').textContent);
       
-      // Populate Data
-      document.title = `${data.appName} - Google Play`;
+      // Isi Data ke HTML
       document.getElementById('icon-img').src = data.icon;
       document.getElementById('app-name').textContent = data.appName;
-      document.getElementById('dev-name').textContent = data.developer;
-      document.getElementById('rating-val').innerHTML = `${data.rating} <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-      document.getElementById('size-val').textContent = data.size;
-      document.getElementById('dl-val').textContent = data.downloads;
       document.getElementById('desc-text').textContent = data.desc;
 
-      // Populate Screenshots
+      // Isi Screenshots
       const ssContainer = document.getElementById('screenshots-area');
       data.screenshots.forEach(url => {
         const div = document.createElement('div');
@@ -318,81 +288,48 @@
         ssContainer.appendChild(div);
       });
 
-      // --- 2. INTERACTIVE FEATURES ---
-      
-      // Install Action
+      // Tombol Install
       const installBtn = document.getElementById('install-btn');
       installBtn.addEventListener('click', () => {
-        installBtn.textContent = "Mendownload...";
+        installBtn.textContent = "Memulai...";
         installBtn.style.opacity = "0.7";
-        showToast("Mulai mengunduh...");
+        showToast("Mengunduh UVOSHOP...");
         
         setTimeout(() => {
           window.location.href = data.apkUrl;
           installBtn.textContent = "Instal";
           installBtn.style.opacity = "1";
-        }, 1500);
+        }, 1200);
       });
 
-      // Share Action
+      // Tombol Share
       document.getElementById('share-btn').addEventListener('click', () => {
         if (navigator.share) {
-          navigator.share({
-            title: data.appName,
-            text: data.desc,
-            url: window.location.href
-          }).catch(console.error);
+          navigator.share({ title: data.appName, text: data.desc, url: window.location.href });
         } else {
           navigator.clipboard.writeText(window.location.href);
-          showToast("Link disalin ke clipboard");
+          showToast("Link berhasil disalin");
         }
       });
     });
 
-    // --- 3. TOAST SYSTEM ---
-    function showToast(message) {
+    // Fungsi Notifikasi (Toast)
+    function showToast(msg) {
       const container = document.getElementById('toast-container');
-      const msgEl = document.getElementById('toast-message');
-      
-      msgEl.textContent = message;
-      container.classList.add('active'); // Trigger CSS transition
-      
-      // Hide after 3 seconds
-      setTimeout(() => {
-        container.classList.remove('active');
-      }, 3000);
+      document.getElementById('toast-message').textContent = msg;
+      container.classList.add('active');
+      setTimeout(() => { container.classList.remove('active'); }, 3000);
     }
 
-    // --- 4. SECURITY SYSTEM (FULL PROTECTION) ---
-    
-    // Disable Right Click
-    document.addEventListener('contextmenu', event => event.preventDefault());
-
-    // Disable Key Combos (F12, Ctrl+U, Ctrl+S, etc.)
+    // --- PROTEKSI KEAMANAN (ANTI-COPY & INSPECT) ---
+    document.addEventListener('contextmenu', e => e.preventDefault());
     document.onkeydown = function(e) {
-      if (
-        e.keyCode == 123 || // F12
-        (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-        (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-        (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) || // Ctrl+U
-        (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) // Ctrl+S
-      ) {
+      if (e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 83))) {
         return false;
       }
     };
-
-    // Anti-DevTools Detector (Basic loop to freeze heavy inspectors)
-    setInterval(() => {
-        const t0 = Date.now();
-        // debugger; // Uncommenting this makes it annoying for inspectors
-        const t1 = Date.now();
-    }, 1000);
-
-    // Prevent Dragging Images
-    document.querySelectorAll('img').forEach(img => {
-      img.addEventListener('dragstart', e => e.preventDefault());
-    });
-
+    // Mencegah drag gambar
+    document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
   </script>
 </body>
 </html>
