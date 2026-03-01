@@ -4,14 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Topup Game Termurah Dan Terlengkap">
-  
+  <meta name="description" content="UVOSHOP adalah website top up game terlengkap dan tercepat. Tersedia layanan website dan aplikasi, download aplikasi (APK). Dapatkan kemudahan top up langsung lewat aplikasi atau unduh APK resmi dari halaman ini.">
+  <meta name="keywords" content="UVOSHOP, Topup Game,Topup Pulsa,Termurah Tercepat Terlengkap">
+  <meta name="application-name" content="UVOSHOP">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UVOSHOP - Download">
+  <meta property="og:description" content="UVOSHOP adalah website top up game terlengkap dan tercepat. Tersedia layanan website, download aplikasi (APK) Sekarang!">
+  <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjKEMTtlZx6I5bQnMTw9AtOmAYikiiIloZ5h8Mr0e47WicdI2rp0gQojMGbYkBICw7poPd8lQESYKj6nb72nUJdABsEKsKBM1GVhU_ZDex-qbmbWpOyEzPVnoknQ8NWK0tdK5eMpPkh4QZnc8rWqn6kV5if3l2uxa79fjJFp41d9t3TbyTjryk8AIw3tFs/s320/WhatsApp%20Image%202025-04-28%20at%2009.28.49_45c5cb4f.jpg">
   <title>UVOSHOP - Download</title>
-  
+
   <style>
-    /* --- 1. CORE VARIABLES & RESET --- */
     :root {
-      --primary: #0b57cf; 
+      --primary: #0b57cf;
       --green: #01875f;
       --bg: #ffffff;
       --text: #202124;
@@ -28,13 +32,11 @@
       outline: none;
     }
 
-    /* --- 2. PROTECTION & BASE STYLES --- */
     body {
       margin: 0;
       font-family: 'Google Sans', Roboto, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      /* ANTI-COPY & SELECT */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -45,10 +47,9 @@
 
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-    
+
     a { text-decoration: none; color: inherit; }
 
-    /* --- 3. HEADER --- */
     .header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -73,9 +74,8 @@
       animation: fadeIn 0.6s ease;
     }
 
-    /* --- 4. APP INFO --- */
     .app-header { display: flex; gap: 24px; margin-bottom: 30px; }
-    
+
     .app-icon {
       width: 90px; height: 90px;
       border-radius: 18px;
@@ -89,7 +89,7 @@
     .app-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .app-title { font-size: 26px; font-weight: 600; margin: 0 0 4px 0; color: var(--text); }
     .dev-name { color: var(--green); font-weight: 600; font-size: 14px; margin-bottom: 12px; }
-    
+
     .stats-row { display: flex; align-items: center; gap: 20px; margin-top: auto; }
     .stat-item { display: flex; flex-direction: column; align-items: center; font-size: 12px; color: var(--muted); position: relative; padding-right: 20px; }
     .stat-item::after { content: ''; position: absolute; right: 0; top: 10%; height: 80%; width: 1px; background: var(--border); }
@@ -97,9 +97,7 @@
     .stat-val { font-weight: 500; font-size: 14px; color: var(--text); display: flex; align-items: center; gap: 4px; }
     .stat-val svg { width: 12px; height: 12px; fill: var(--text); }
 
-    /* --- 5. BUTTONS --- */
     .actions { width: 100%; display: flex; gap: 12px; margin-bottom: 30px; }
-    
     .btn {
       flex: 1;
       display: flex; align-items: center; justify-content: center;
@@ -113,14 +111,13 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .btn-primary { background: var(--green); color: #fff; box-shadow: 0 2px 6px rgba(1,135,95,0.2); }
     .btn-primary:active { transform: scale(0.98); opacity: 0.9; }
-    
+
     .btn-outline { background: transparent; color: var(--green); border: 1px solid var(--border); }
     .btn-outline:hover { background: #f0fdf4; }
 
-    /* --- 6. SCREENSHOTS --- */
     .scroll-container {
       display: flex; gap: 12px;
       overflow-x: auto;
@@ -140,16 +137,14 @@
     }
     .screen-shot img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
-    /* --- 7. DESCRIPTION --- */
     .content-box { margin-bottom: 40px; }
     .section-title { display: flex; justify-content: space-between; align-items: center; font-size: 18px; font-weight: 600; margin-bottom: 16px; }
     .section-arrow { fill: var(--muted); width: 24px; }
-    
+
     .desc-box { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 24px; }
     .tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .tag { border: 1px solid var(--border); padding: 6px 14px; border-radius: 100px; font-size: 12px; color: var(--muted); font-weight: 500; }
 
-    /* --- 8. TOAST NOTIFICATION --- */
     #toast-container {
       position: fixed;
       bottom: 30px;
@@ -177,11 +172,9 @@
     .toast-icon { width: 20px; height: 20px; fill: var(--green); }
     .toast-msg { font-size: 14px; font-weight: 500; }
 
-    /* --- 9. ANIMATIONS --- */
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
 
-    /* MOBILE RESPONSIVE */
     @media (max-width: 600px) {
       .app-header { gap: 16px; }
       .app-icon { width: 72px; height: 72px; border-radius: 14px; }
@@ -192,25 +185,23 @@
   </style>
 </head>
 <body>
-
   <header class="header">
     <div class="logo-area">
-      <svg viewBox="0 0 24 24"><path d="M4.17 3.51c-.6.31-.97.94-.97 1.64v13.7c0 .7.37 1.33.97 1.64l.06.03 8.35-8.35v-.34L4.23 3.48l-.06.03zm10.74 8.23l-2.05 2.05-8.35 8.35c.4.38 1 .4 1.48.12l12.44-7.14-3.52-3.38zm0-7.48L11.39 7.63l2.05 2.05 3.52-3.38L4.52.84c-.48-.28-1.08-.26-1.48.12l8.35 8.35 3.52-3.52zM19.98 11.2l-2.67-1.54-2.67 2.67 2.67 2.67 2.67-1.54c.9-.52.9-1.74 0-2.26z" fill="#5f6368"></path></svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.17 3.51c-.6.31-.97.94-.97 1.64v13.7c0 .7.37 1.33.97 1.64l.06.03 8.35-8.35v-.34L4.23 3.48l-.06.03zm10.74 8.23l-2.05 2.05-8.35 8.35c.4.38 1 .4 1.48.12l12.44-7.14-3.52-3.38zm0-7.48L11.39 7.63l2.05 2.05 3.52-3.38L4.52.84c-.48-.28-1.08-.26-1.48.12l8.35 8.35 3.52-3.52zM19.98 11.2l-2.67-1.54-2.67 2.67 2.67 2.67 2.67-1.54c.9-.52.9-1.74 0-2.26z" fill="#5f6368"></path></svg>
       <span>Play Google</span>
     </div>
   </header>
 
   <div class="main-container">
-    
     <div class="app-header">
       <div class="app-icon"><img id="icon-img" src="" alt="UVOSHOP"></div>
       <div class="app-info">
         <h1 class="app-title" id="app-name">...</h1>
         <div class="dev-name">ADITdeveloper</div>
-        
+
         <div class="stats-row">
           <div class="stat-item">
-            <span class="stat-val">4.9+ <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+            <span class="stat-val">4.9+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
             <span>Ulasan</span>
           </div>
           <div class="stat-item">
@@ -226,19 +217,19 @@
     </div>
 
     <div class="actions">
-      <button class="btn btn-primary" id="install-btn">Instal</button>
-      <button class="btn btn-outline" id="share-btn">Bagikan</button>
+      <button class="btn btn-primary" id="install-btn" aria-label="Install UVOSHOP">Instal</button>
+      <button class="btn btn-outline" id="share-btn" aria-label="Bagikan halaman">Bagikan</button>
     </div>
 
-    <div class="scroll-container" id="screenshots-area"></div>
+    <div class="scroll-container" id="screenshots-area" aria-label="Screenshot aplikasi"></div>
 
     <div class="content-box">
       <div class="section-title">
         <span>Tentang aplikasi ini</span>
-        <svg class="section-arrow" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        <svg class="section-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
       </div>
       <p class="desc-box" id="desc-text"></p>
-      
+
       <div class="tags">
         <span class="tag">Topup Game</span>
         <span class="tag">Murah</span>
@@ -248,9 +239,9 @@
     </div>
   </div>
 
-  <div id="toast-container">
+  <div id="toast-container" role="status" aria-live="polite">
     <div class="toast-box">
-      <svg class="toast-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      <svg class="toast-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
       <span class="toast-msg" id="toast-message">Notifikasi</span>
     </div>
   </div>
@@ -273,63 +264,98 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const data = JSON.parse(document.getElementById('config-data').textContent);
-      
-      // Isi Data ke HTML
-      document.getElementById('icon-img').src = data.icon;
+
+      const iconImg = document.getElementById('icon-img');
+      iconImg.src = data.icon;
+      iconImg.alt = data.appName + " icon";
+
       document.getElementById('app-name').textContent = data.appName;
       document.getElementById('desc-text').textContent = data.desc;
 
-      // Isi Screenshots
       const ssContainer = document.getElementById('screenshots-area');
+      ssContainer.innerHTML = "";
       data.screenshots.forEach(url => {
         const div = document.createElement('div');
         div.className = 'screen-shot';
-        div.innerHTML = `<img src="${url}" alt="ss">`;
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = data.appName + " screenshot";
+        img.addEventListener('dragstart', e => e.preventDefault());
+        div.appendChild(img);
         ssContainer.appendChild(div);
       });
 
-      // Tombol Install
       const installBtn = document.getElementById('install-btn');
       installBtn.addEventListener('click', () => {
         installBtn.textContent = "Memulai...";
         installBtn.style.opacity = "0.7";
         showToast("Mengunduh UVOSHOP...");
-        
+
         setTimeout(() => {
-          window.location.href = data.apkUrl;
-          installBtn.textContent = "Instal";
-          installBtn.style.opacity = "1";
+          try {
+            window.location.href = data.apkUrl;
+          } catch (err) {
+            showToast("Gagal membuka link unduhan");
+          } finally {
+            installBtn.textContent = "Instal";
+            installBtn.style.opacity = "1";
+          }
         }, 1200);
       });
 
-      // Tombol Share
-      document.getElementById('share-btn').addEventListener('click', () => {
+      document.getElementById('share-btn').addEventListener('click', async () => {
+        const sharePayload = { title: data.appName, text: data.desc, url: window.location.href };
         if (navigator.share) {
-          navigator.share({ title: data.appName, text: data.desc, url: window.location.href });
+          try {
+            await navigator.share(sharePayload);
+          } catch (err) {
+          }
+        } else if (navigator.clipboard) {
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            showToast("Link berhasil disalin");
+          } catch (err) {
+            showToast("Tidak dapat menyalin link");
+          }
         } else {
-          navigator.clipboard.writeText(window.location.href);
-          showToast("Link berhasil disalin");
+          showToast("Fitur berbagi tidak tersedia");
         }
       });
+
+      document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
     });
 
-    // Fungsi Notifikasi (Toast)
     function showToast(msg) {
       const container = document.getElementById('toast-container');
-      document.getElementById('toast-message').textContent = msg;
+      const msgElem = document.getElementById('toast-message');
+      msgElem.textContent = msg;
       container.classList.add('active');
       setTimeout(() => { container.classList.remove('active'); }, 3000);
     }
 
-    // --- PROTEKSI KEAMANAN (ANTI-COPY & INSPECT) ---
     document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = function(e) {
-      if (e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 83))) {
-        return false;
+    document.addEventListener('keydown', function(e) {
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      if (e.key === 'F12') {
+        e.preventDefault();
       }
-    };
-    // Mencegah drag gambar
-    document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+        e.preventDefault();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+      }
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+        e.preventDefault();
+      }
+    });
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
+    });
   </script>
 </body>
 </html>
